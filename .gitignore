@@ -1,0 +1,19 @@
+# -*- mode: gitignore; -*-
+build-*/
+opencv_*/
+opencv-*/
+cvat-*/
+tarballs/
+work/
+
+# Emacs backup files
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+.dir-locals.el
