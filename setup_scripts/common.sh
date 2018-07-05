@@ -41,7 +41,50 @@ then
     OPENCV_VERSION=head
 fi
 
-assert "test x${_require_ve} == xtrue -o x${_require_ve} == xfalse"
+function assert_truefalse() {
+    local varname
+    local value
+    varname=$1
+    value=\$$varname
+    _ok=false
+    if [ ${value} == true ]
+    then
+	ok=true
+    fi
+    if [ ${value} == false ]
+    then
+	ok=true
+    fi
+
+    if ! $ok
+    then
+	echo "Variable: ${varname} is not valid it is: ${value}"
+	echo "It must be exactly 'true' or 'false'"
+	exit 1
+    fi
+}
+
+assert_truefalse _require_ve
+
+_logfile=${_logfile-false}
+assert_truefalse _logfile
+
+if ${_logfile}
+then
+    # filename
+    _log_filename=${HERE}/`basename ${0}`-${OPENCV_VERSION}.log
+    #
+    # remove old
+    rm -f ${_log_filename}
+    # start logging
+    exec &> >(tee "$_log_filename")
+    echo "#---------------------------"
+    echo "# Logfile: " ${_log_filename}
+    echo "# Logfile started: `date`"
+    echo "# Working directory: `pwd`"
+    echo "#---------------------------"
+fi
+
 
 # I only use python3
 _python_exe=python3
@@ -69,4 +112,3 @@ if [ ! -x ${PYTHON_EXE} ]
 then
     echo "Missing Python executable: ${PYTHON_EXE}"
 fi
-       
