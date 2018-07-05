@@ -5,6 +5,7 @@ opencv-*/
 cvat-*/
 tarballs/
 work/
+*.log
 
 # Emacs backup files
 *~
