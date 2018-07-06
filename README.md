@@ -44,6 +44,9 @@ Install various packages via "apt-get" This appears to be the list of
 things you need to enable "lots of stuff" in opencv the list may be
 incomplete and/or overkill - but seems to be what I needed.
 
+Note: This may not install everything you need, and may over install
+stuff your milage may vary.
+
 ```
    $ bash ./setup_scripts/setup_apt_get.sh
 ```
@@ -55,7 +58,7 @@ Install/upgrade pip
    $ bash ./setup_scripts/setup_pip.sh
 ```
 
-Install packages
+Install packages, again: "Your milage may vary"
 ```
    $ bash ./setup_scripts/setup_pip_packages.sh
 ```
