@@ -3,29 +3,37 @@
 ## Limitations
 
 Tested with Ubuntu 16.04 and nothing else
-Only with opencv-git-head, and OpenCV-3.3.0
-I have no need to make it work with other configurations.
+
+* Only with opencv-git-head, and OpenCV-3.3.0
+* I have no need to make it work with other configurations.
 
 ## What is this?
 
-It is a collection of scripts used to create working "OpenCV"
-workspace using Python. It is greatly modeled, or flavored after
+It is a collection of scripts used to create working "OpenCV" virtual
+environments using Python. It is greatly modeled, or flavored after
 Adrian Rosebrock's "PyImageSearch" work but with a few differences.
 
 a. I am not using his virtual machine - I'm using my linux box
 
 b. Adrian's instructions BUILDS & INSTALLS OpenCV into a standard place
 
-Instead, I make use of the Python Virtual Environment and install the
-OpenCV package into the Virtual Environment.  Why? Because this lets
-me have multiple (N=many) versions of OpenCV at the same time that do
-not conflict with each other.
+In contrast, I specify point the ```CMAKE_INSTALL_PREFIX``` at the
+virtual enviroment, thus OpenCV is installed into Virtual Environment
+and not a standard place. 
 
-In addition, Adrian's solutions generally install some Python things
-into the Python Virtual Environment.  An example of this is Numpy,
-which Adrian installs via 'pip' - instead - I install this and other
-Python packages via 'apt-get install' or via "pip install" into the
-standard system wide locations.
+Main reason: Why? Because this lets me have multiple (N=many) versions
+of OpenCV at the same time that do not conflict with each other, and
+quickly switch between different versions - for example Shell Window
+(A) - is for v3.3, but shell window (B) is for git-head (See
+conclusion for more details)
+
+Secondary: In addition, Adrian's solutions (tutorials) generally
+install some Python things into the Python Virtual Environment.  An
+example of this is Numpy, which Adrian installs via 'pip' - in
+contrast I install Numpy (and many other packages) via 'apt-get
+install' or via "pip install" but I install them into the standard
+system wide locations.  Perhaps that is a dumb move - but it works for
+me.
 
 
 # Scripts are, and are used like this:
@@ -133,18 +141,23 @@ $ workon  cv_head
 
 # I can now use Python with OpenCV Head
 ```
-Then
+Then in another shell window
 ```
-$ disable 
-$ workon cv_33
-# Assuming I created this virtual env earlier
-# Note the implication here is I have OpenCV3.3
-# in this virtual env which is different then git-head
-... hack hack hack ...
+$ bash ./setup_scritps/make_env.sh experiment1
+$ workon experiment1
+
+# Hack OpenCV make changes, learn the code
+# could be OpenCV 3.3 or Head it does not matter.
+
+$ bash ./setup_script/build_opencv.sh
+
+# Test and experiment with my hacked opencv
 ```
 
-Then I can also create a custom virtual env...  example: ```cv_experiment1``` And modify OpenCV and install it into that custom virtualenv. If that experiment is a disaster .. (and they often are) I can just erase that virtual environment and create cv_experiment2
+Meanwhile - my installed ```opencv-head``` is intact and not mucked with.
 
+When I'm done with the experiment I just delete the virtual
+environment.
 
 
 
