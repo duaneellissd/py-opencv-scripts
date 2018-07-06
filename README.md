@@ -89,16 +89,16 @@ The solution is actually quite simple, just enable: "--system-site-packages"
 ```
 Or use the script
 ```
-    $ ENV_NAME=foobar bash ./setup_scripts/make_env.sh
+    $ bash ./setup_scripts/make_env.sh  NAMEHERE
 	
-	# Enable the env
-	$ workon foobar
+    # Enable the env
+    $ workon foobar
 	
-	# ... hack hack hack...
-	# once you are done...
+    # ... hack hack hack...
+    # once you are done...
 	
-	# Disable the environment
-	$ disable foobar
+    # Disable the environment
+    $ disable foobar
 ```
 	
 ## Building
@@ -119,4 +119,29 @@ $ OPENCV_VERSION=3.3.0
 $ export OPENCV_VERSION
 $ bash setup_scripts/build_opencv.sh
 ```
+
+# So what's this give me?
+
+```
+$ workon  cv_head
+
+# I can now use Python with OpenCV Head
+```
+Then
+```
+$ disable 
+$ workon cv_33
+# Assuming I created this virtual env earlier
+# Note the implication here is I have OpenCV3.3
+# in this virtual env which is different then git-head
+... hack hack hack ...
+```
+
+Then I can also create a custom virtual env...  example: ```cv_experiment1``` And modify OpenCV and install it into that custom virtualenv. If that experiment is a disaster .. (and they often are) I can just erase that virtual environment and create cv_experiment2
+
+
+
+
+
+
 
