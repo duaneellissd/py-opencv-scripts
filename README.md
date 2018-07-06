@@ -1,6 +1,12 @@
 # What is this?
 
+## Limitations
+
 Tested with Ubuntu 16.04 and nothing else
+Only with opencv-git-head, and OpenCV-3.3.0
+I have no need to make it work with other configurations.
+
+## What is this?
 
 It is a collection of scripts used to create working "OpenCV"
 workspace using Python. It is greatly modeled, or flavored after
