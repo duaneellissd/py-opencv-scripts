@@ -1,5 +1,12 @@
 #! /bin/bash
 
+if [ -x"${BASH_VERSINFO}" == x"" ]
+then
+    echo "This script assumes/expects bash"
+    exit 1
+fi
+
+
 #---------------
 # this is a bunch of common helper functions
 # and steps used by the build scripts
