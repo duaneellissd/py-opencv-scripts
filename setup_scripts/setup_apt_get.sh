@@ -15,6 +15,7 @@ sudo apt-get install -y libatlas-base-dev gfortran
 sudo apt-get install -y python2.7-dev python3.5-dev
 sudo apt-get install -y liblapacke-dev libatlas-base-dev
 sudo apt-get install -y libavresample-dev
+sudo apt-get install -y libhdf5-serial-dev
 sudo apt-get install -y 'libeigen3*'
 
 sudo apt-get install -y 'libgstreamer-plugins-base1.*'

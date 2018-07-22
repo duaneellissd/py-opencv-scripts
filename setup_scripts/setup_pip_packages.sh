@@ -16,5 +16,8 @@ do
     sudo ${PIP} install h5py
     sudo ${PIP} install scikit-image
     sudo ${PIP} install dlib
-    sudo ${PIP} JSON_minify
+    sudo ${PIP} install -U JSON_minify
+    sudo ${PIP} install -U scikit-learn
+    sudo ${PIP} install mahotas
+    sudo ${PIP} install progressbar2
 done
